@@ -16,9 +16,9 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter instantnoodle instantnoodlep kebab,$(TARGET_DEVICE)),)
-subdir_makefiles=$(call first-makefiles-under,$(LOCAL_PATH))
-$(foreach mk,$(subdir_makefiles),$(info including $(mk) ...)$(eval include $(mk)))
+ifeq ($(TARGET_DEVICE),kebab)
+
+include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
