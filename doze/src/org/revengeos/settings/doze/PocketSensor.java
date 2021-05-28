@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2015 The CyanogenMod Project
- *               2017-2018 The LineageOS Project
+ * Copyright (c) 2016 The CyanogenMod Project
+ * Copyright (c) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,15 +15,13 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.doze;
+package com.revengeos.settings.doze;
 
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.PowerManager;
-import android.os.PowerManager.WakeLock;
 import android.os.SystemClock;
 import android.util.Log;
 
@@ -31,30 +29,24 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class PickupSensor implements SensorEventListener {
+public class PocketSensor implements SensorEventListener {
 
     private static final boolean DEBUG = false;
-    private static final String TAG = "PickupSensor";
+    private static final String TAG = "PocketSensor";
 
     private static final int MIN_PULSE_INTERVAL_MS = 2500;
-    private static final int MIN_WAKEUP_INTERVAL_MS = 1000;
-    private static final int WAKELOCK_TIMEOUT_MS = 300;
 
-    private PowerManager mPowerManager;
     private SensorManager mSensorManager;
     private Sensor mSensor;
-    private WakeLock mWakeLock;
     private Context mContext;
     private ExecutorService mExecutorService;
 
     private long mEntryTimestamp;
 
-    public PickupSensor(Context context) {
+    public PocketSensor(Context context) {
         mContext = context;
-        mPowerManager = mContext.getSystemService(PowerManager.class);
         mSensorManager = mContext.getSystemService(SensorManager.class);
-        mSensor = Utils.getSensor(mSensorManager, "oneplus.sensor.op_motion_detect");
-        mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
+        mSensor = Utils.getSensor(mSensorManager, "oneplus.sensor.pocket");
         mExecutorService = Executors.newSingleThreadExecutor();
     }
 
@@ -73,14 +65,8 @@ public class PickupSensor implements SensorEventListener {
 
         mEntryTimestamp = SystemClock.elapsedRealtime();
 
-        if (event.values[0] == 1) {
-            if (Utils.isPickUpSetToWake(mContext)) {
-                mWakeLock.acquire(WAKELOCK_TIMEOUT_MS);
-                mPowerManager.wakeUp(SystemClock.uptimeMillis(),
-                        PowerManager.WAKE_REASON_GESTURE, TAG);
-            } else {
-                Utils.launchDozePulse(mContext);
-            }
+        if (event.values[0] == 0.0) {
+            Utils.launchDozePulse(mContext);
         }
     }
 
