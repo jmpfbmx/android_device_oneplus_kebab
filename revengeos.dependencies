@@ -10,5 +10,53 @@
         "repository":   "jmpfbmx/android_vendor_oneplus_kebab",
         "target_path":  "vendor/oneplus/kebab",
         "revision":     "r11.0"
+    },
+    {
+        "remote":       "github",
+        "repository":   "LineageOS/android_vendor_nxp_interfaces_opensource_nfc",
+        "target_path":  "vendor/nxp/opensource/interfaces/nfc",
+        "revision":     "lineage-18.1"
+    },
+    {
+        "remote":       "github",
+        "repository":   "LineageOS/android_vendor_nxp_opensource_external_libnfc-nci",
+        "target_path":  "vendor/nxp/opensource/commonsys/external/libnfc-nci",
+        "revision":     "lineage-18.1"
+    },
+    {
+        "remote":       "github",
+        "repository":   "LineageOS/android_vendor_nxp_opensource_frameworks",
+        "target_path":  "vendor/nxp/opensource/commonsys/frameworks",
+        "revision":     "lineage-18.1"
+    },
+    {
+        "remote":       "github",
+        "repository":   "LineageOS/android_vendor_nxp_opensource_packages_apps_Nfc",
+        "target_path":  "vendor/nxp/opensource/commonsys/packages/apps/Nfc",
+        "revision":     "lineage-18.1"
+    },
+    {
+        "remote":       "github",
+        "repository":   "LineageOS/android_vendor_nxp_opensource_halimpl",
+        "target_path":  "vendor/nxp/opensource/pn5xx/halimpl",
+        "revision":     "lineage-18.1-pn5xx"
+    },
+    {
+        "remote":       "github",
+        "repository":   "LineageOS/android_vendor_nxp_opensource_hidlimpl",
+        "target_path":  "vendor/nxp/opensource/pn5xx/hidlimpl",
+        "revision":     "lineage-18.1-pn5xx"
+    },
+    {
+        "remote":       "github",
+        "repository":   "LineageOS/android_vendor_nxp_opensource_halimpl",
+        "target_path":  "vendor/nxp/opensource/sn100x/halimpl",
+        "revision":     "lineage-18.1-sn100x"
+    },
+    {
+        "remote":       "github",
+        "repository":   "LineageOS/android_vendor_nxp_opensource_hidlimpl",
+        "target_path":  "vendor/nxp/opensource/sn100x/hidlimpl",
+        "revision":     "lineage-18.1-sn100x"
     }
 ]
