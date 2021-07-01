@@ -1,13 +1,13 @@
 [
     {
-        "remote":       "github",
-        "repository":   "jmpfbmx/android_kernel_oneplus_kebab",
+        "remote":       "devices",
+        "repository":   "kernel_oneplus_kebab",
         "target_path":  "kernel/oneplus/kebab",
         "revision":     "r11.0"
     },
     {
-        "remote":       "github",
-        "repository":   "jmpfbmx/android_vendor_oneplus_kebab",
+        "remote":       "devices",
+        "repository":   "vendor_oneplus_kebab",
         "target_path":  "vendor/oneplus/kebab",
         "revision":     "r11.0"
     },
